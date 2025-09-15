@@ -1,0 +1,1 @@
+Site desenvolvido para divulgação pessoal do desenvolvedor Daniel da Cunha Bueno, com posts sobre .NET, Angular, DevOps e Cloud.

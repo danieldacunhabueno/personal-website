@@ -1,0 +1,61 @@
+---
+import '../styles.css';
+import profileImg from '../../profile.jpeg';
+const { title = 'Daniel da Cunha Buerno — Desenvolvedor', description = 'Portfólio, blog e experiência do Daniel da Cunha Buerno', seo = {} } = Astro.props as any;
+const base: string = import.meta.env.BASE_URL || '/';
+---
+<html lang="pt-br" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href={`${base}favicon.ico`} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="Daniel da Cunha Buerno, desenvolvedor .NET, Angular, DevOps, Azure, AWS, GCP, blog técnico, portfólio" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://danieldacunhabueno.github.io/personal-website" />
+  <meta property="og:image" content={new URL(profileImg.src, Astro.site).toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={new URL(profileImg.src, Astro.site).toString()} />
+    <script type="application/ld+json">{JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Daniel da Cunha Buerno',
+      url: 'https://danieldacunhabueno.github.io/personal-website',
+      image: 'https://danieldacunhabueno.github.io/personal-website/profile.jpeg',
+      jobTitle: 'Desenvolvedor Full-Stack (.NET, Angular)',
+      sameAs: [
+        'https://github.com/danieldacunhabueno'
+      ]
+    })}</script>
+  </head>
+  <body class="min-h-dvh bg-gray-50 text-gray-900 antialiased">
+    <header class="border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-50">
+      <div class="container-max flex items-center justify-between py-4">
+        <a href={base} class="font-semibold tracking-tight">Daniel da Cunha Buerno</a>
+        <nav class="hidden sm:flex gap-6 text-sm">
+          <a href={`${base}#skills`} class="hover:text-brand">Habilidades</a>
+          <a href={`${base}#timeline`} class="hover:text-brand">Experiência</a>
+          <a href={`${base}blog`} class="hover:text-brand">Blog</a>
+          <a href="https://github.com/danieldacunhabueno" target="_blank" rel="noopener" class="hover:text-brand">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container-max py-8 sm:py-12">
+      <slot />
+    </main>
+
+    <footer class="mt-20 border-t bg-white">
+      <div class="container-max py-10 text-sm text-gray-600 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p>© {new Date().getFullYear()} Daniel da Cunha Buerno</p>
+        <p class="opacity-80">Construído com Astro + Tailwind. Hospedado no GitHub Pages.</p>
+      </div>
+    </footer>
+  </body>
+  
+</html>
