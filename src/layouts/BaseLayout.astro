@@ -3,6 +3,7 @@ import '../styles.css';
 import profileImg from '../../profile.jpeg';
 const { title = 'Daniel da Cunha Buerno — Desenvolvedor', description = 'Portfólio, blog e experiência do Daniel da Cunha Buerno', seo = {} } = Astro.props as any;
 const base: string = import.meta.env.BASE_URL || '/';
+const site = Astro.site?.toString().replace(/\/$/, '') || 'https://daniel.cunhabueno.com.br';
 ---
 <html lang="pt-br" class="scroll-smooth">
   <head>
@@ -15,18 +16,18 @@ const base: string = import.meta.env.BASE_URL || '/';
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://danieldacunhabueno.github.io/personal-website" />
-  <meta property="og:image" content={new URL(profileImg.src, Astro.site).toString()} />
+    <meta property="og:url" content={site} />
+  <meta property="og:image" content={new URL(profileImg.src, Astro.site || site).toString()} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={new URL(profileImg.src, Astro.site).toString()} />
+  <meta name="twitter:image" content={new URL(profileImg.src, Astro.site || site).toString()} />
     <script type="application/ld+json">{JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: 'Daniel da Cunha Buerno',
-      url: 'https://danieldacunhabueno.github.io/personal-website',
-      image: 'https://danieldacunhabueno.github.io/personal-website/profile.jpeg',
+  url: site,
+  image: site + '/profile.jpeg',
       jobTitle: 'Desenvolvedor Full-Stack (.NET, Angular)',
       sameAs: [
         'https://github.com/danieldacunhabueno'
