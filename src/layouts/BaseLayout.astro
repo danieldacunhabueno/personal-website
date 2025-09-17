@@ -7,7 +7,7 @@ const site = Astro.site?.toString().replace(/\/$/, '') || 'https://daniel.cunhab
 ---
 <html lang="pt-br" class="scroll-smooth">
   <head>
-    <meta charset="utf-8" />
+  <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href={`${base}favicon.ico`} />
     <title>{title}</title>
@@ -22,6 +22,9 @@ const site = Astro.site?.toString().replace(/\/$/, '') || 'https://daniel.cunhab
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={new URL(profileImg.src, Astro.site || site).toString()} />
+  <link rel="canonical" href={site + (Astro.url?.pathname || '/')} />
+  <meta name="robots" content="index, follow" />
+  <link rel="manifest" href={`${base}manifest.json`} />
     <script type="application/ld+json">{JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Person',
