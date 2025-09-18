@@ -1,0 +1,84 @@
+{
+  "conventionalCommits.scopes": [
+    "infrascructure",
+    "login",
+    "forgotMytPassword",
+    "tickets",
+    "business",
+    "environments",
+    "lpu",
+    "dependecies"
+  ],
+  "chat.agent.enabled": true,
+  "chat.agent.maxRequests": 100,
+  "chat.agent.confirmTaskExecution": false,
+  "chat.tools.autoApprove": true,
+  "github.copilot.chat.agent.runTasks": true,
+  "github.copilot.chat.agent.confirmTaskExecution": false,
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "file": ".github/.copilot-commit-message-instructions.md"
+    }
+  ],
+
+  // Configurações básicas do GitHub Copilot
+  "github.copilot.enable": true,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.advanced.indentationMode": "autoDetect",
+  "github.copilot.chat.enabled": true,
+
+  // Configurações avançadas e experimentais
+  "github.copilot.editor.enableWhenToAsk": true,
+  "github.copilot.editor.whenToAskThreshold": 0.6,
+  "github.copilot.advanced.setAutoCompletionsTimeout": 500,
+  "github.copilot.editor.enableCodeActions": true,
+  "github.copilot.inlineSuggest.enable": true,
+  "editor.inlineSuggest.showToolbar": "always",
+  "github.copilot.editor.iterativeSuggestionsEnabled": true,
+
+  // Configurações específicas para TypeScript (otimizado para Angular)
+  "[typescript]": {
+    "github.copilot.advanced.generationRegex": "\/\/\\s*@copilot\\s+(.*)",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit",
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+
+  // Configurações de timeout para projetos complexos
+  "github.copilot.chat.agent.timeoutMs": 300000,
+
+  // Configurações para melhor integração com TypeScript
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.suggest.completeFunctionCalls": true,
+
+  // Configurações para melhorar a experiência de desenvolvimento
+  "editor.suggestSelection": "first",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "editor.suggest.showStatusBar": true,
+
+  // Melhoria para identificação de código em workers (útil para SessionWorker da BSource)
+  "files.associations": {
+    "*.worker.ts": "typescript"
+  },
+
+  // Configurações para melhorar a documentação com TypeDoc
+  "typedoc.preferredMode": "modules",
+  "typedoc.enableInlineSourceReferences": true,
+
+  // Configurações de terminal para PowerShell
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    }
+  }
+}
